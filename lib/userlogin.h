@@ -4,15 +4,33 @@ using namespace std;
 class UserLogin
 {
 private:
-  string name;
-  int nim;
+  struct User
+  {
+    int userId;
+    string userName;
+    int userPassword;
+  };
+  int userDataIndex;
+  User userData[255];
+
 public:
-  void login(){
+  void userLogin()
+  {
+    string tempUserName;
+    int tempUsePassword;
+
     cout << "=================\n";
-    cout << "User = ";
-    cin >> name;
+    cout << "Username : ";
+    cin >> tempUserName;
     cout << "=================\n";
-    cout << "Password = ";
-    cin >> nim;
+    cout << "Password : ";
+    cin >> tempUsePassword;
     cout << "=================\n";
+  };
+
+  void userRegister()
+  {
+    string tempUserName;
+    int tempUserPassword;
+  };
 };
