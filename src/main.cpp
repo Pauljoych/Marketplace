@@ -7,6 +7,24 @@ using namespace std;
 
 int main()
 {
+  UserLogin x;
+  x.userlogin();
+  
+  cout << "========================\n";
+  cout << "Input Nama Barang = ";
+  cin >> itemName;
+  cout << "Input Harga Barang = ";
+  cin >> itemPrice;
+  
+  cout << "========================\n";
+  cout << "Kurir : " << endl;
+  cout << "J&T" << endl;
+  cout << "SiCepat" << endl;
+  cout << "AnterAja" << endl;
+  cout << "========================\n";
+  cout << "Input Kurir = ";
+  cin >> kurirList;
+  
   ofstream txt("invoice.txt");
   txt << "+-----------------------------------------------+\n";
   txt << "|\t\tBukti Pembayaran\t\t|\n";
