@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class UserLogin
@@ -14,23 +15,50 @@ private:
   User userData[255];
 
 public:
-  void userLogin()
+  bool userLogin()
   {
-    string tempUserName;
-    int tempUsePassword;
-
-    cout << "=================\n";
-    cout << "Username : ";
-    cin >> tempUserName;
-    cout << "=================\n";
-    cout << "Password : ";
-    cin >> tempUsePassword;
-    cout << "=================\n";
-  };
-
-  void userRegister()
-  {
+    bool isRegister = false;
     string tempUserName;
     int tempUserPassword;
+
+    cout << "Username : ";
+    getline(cin, tempUserName);
+    cout << "Password : ";
+    cin >> tempUserPassword;
+
+    for (int i = 0; i < userDataIndex; i++)
+    {
+      if (userData[i].userName == tempUserName)
+      {
+        if (userData[i].userPassword == tempUserPassword)
+        {
+          isRegister = true;
+        }
+      }
+    }
+
+    return isRegister;
+  };
+
+  bool userRegister()
+  {
+    bool isUserNameAvail = true;
+    string tempUserName;
+    int tempUserPassword;
+
+    cout << "Username : ";
+    getline(cin, tempUserName);
+    cout << "Password : ";
+    cin >> tempUserPassword;
+
+    for (int i = 0; i < userDataIndex; i++)
+    {
+      if (userData[userDataIndex].userName == tempUserName)
+      {
+        isUserNameAvail = false
+      }
+    }
+
+    return isUserNameAvail;
   };
 };
