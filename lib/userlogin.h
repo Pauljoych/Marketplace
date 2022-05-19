@@ -11,7 +11,7 @@ private:
     string userName;
     int userPassword;
   };
-  int userDataIndex;
+  int userDataIndex = 0;
   User userData[255];
 
 public:
@@ -57,6 +57,14 @@ public:
       {
         isUserNameAvail = false;
       }
+    }
+
+    if (isUserNameAvail)
+    {
+      userData[userDataIndex].userId = userDataIndex;
+      userData[userDataIndex].userName = tempUserName;
+      userData[userDataIndex].userPassword = tempUserPassword;
+      userDataIndex++;
     }
 
     return isUserNameAvail;
