@@ -1,6 +1,6 @@
 1. Login System (Nama sebagai user dan nim sebagai password)
 2. Wallet System
-3. marketplace system
+3. Marketplace system
 
   - User dapat membeli lebih dari satu jenis barang
   - User dapat menentukan alamat penerima
