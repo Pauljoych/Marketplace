@@ -55,7 +55,7 @@ public:
     {
       if (userData[userDataIndex].userName == tempUserName)
       {
-        isUserNameAvail = false
+        isUserNameAvail = false;
       }
     }
 
