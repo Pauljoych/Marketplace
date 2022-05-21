@@ -23,6 +23,10 @@ int main()
   }
 
   cout << "========================\n";
+  cout << "Input Alamat Pengirim = ";
+  cin >> userAddress;
+	
+  cout << "========================\n";
   cout << "Kurir : " << endl;
   cout << "J&T" << endl;
   cout << "SiCepat" << endl;
