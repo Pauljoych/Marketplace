@@ -29,13 +29,19 @@ int main()
   txt << "+-----------------------------------------------+\n";
   txt << "|\t\tBukti Pembayaran\t\t|\n";
   txt << "+-----------------------------------------------+\n";
-  txt << "| Nama Pelanggan	: EKO\t\t\t|\n";
-  txt << "| Alamat tujuan 	: alamat\t\t|\n";
-  txt << "| Asuransi produk	: ya\t\t\t|\n";
-  txt << "| Ekspedisi		: JNE\t\t\t|\n";
+  txt << "| Nama Pelanggan	: "<<tempUserName;<<"\t\t\t|\n";
+  txt << "| Alamat tujuan 	: "<<userAddress<<"\t\t|\n";
+  if(userKurirProtection==false){
+  	userKurirProtection="Tidak";
+  }
+  else{
+  	userKurirProtection="Ya";
+  }
+  txt << "| Asuransi produk	: "<<userKurirProtection<<"\t\t\t|\n";
+  txt << "| Ekspedisi		: "<<kurirList<<"\t\t\t|\n";
   txt << "+-----------------------------------------------+\n";
-  txt << "| Nama barang	: alpro\t\t\t\t|\n";
-  txt << "| Jumlah barang	: 0\t\t\t\t|\n";
+  txt << "| Nama barang	: "<<itemName<<"\t\t\t\t|\n";
+  txt << "| Jumlah barang	: "<<itemsListIndex<<"\t\t\t\t|\n";
   txt << "+-----------------------------------------------+\n";
   txt << "| Diskon	: Rp.0\t\t\t\t|\n";
   txt << "| Total bayar	: p\t\t\t\t|\n";
@@ -45,3 +51,4 @@ int main()
   txt << "+-----------------------------------------------+\n";
   txt.close();
 }
+
