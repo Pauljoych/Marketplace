@@ -12,10 +12,16 @@ public:
     string userName;
     int userPassword;
   };
-  int userDataIndex = 0;
+
+  int userDataIndex;
   User userData[255];
 
   string curentUserName;
+
+  void init()
+  {
+    userDataIndex = 0;
+  }
 
   bool userLogin()
   {
@@ -23,6 +29,8 @@ public:
     string tempUserName;
     int tempUserPassword;
 
+    cout << "Login" << endl;
+    cout << "====================" << endl;
     cout << "Username : ";
     getline(cin, tempUserName);
     cout << "Password : ";
@@ -49,6 +57,8 @@ public:
     string tempUserName;
     int tempUserPassword;
 
+    cout << "Register" << endl;
+    cout << "====================" << endl;
     cout << "Username : ";
     getline(cin, tempUserName);
     cout << "Password : ";

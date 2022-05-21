@@ -21,8 +21,23 @@ int main()
   UserLogin login;
   MarketPlace market;
 
+  login.init();
+  market.init();
+
   market.addItem("Mouse", 10000);
   market.addItem("Keyboard", 10000);
+
+  login.userRegister();
+
+back_to_login:
+
+  bool loginSuccess = login.userLogin();
+
+  if (!loginSuccess)
+  {
+    cout << "Username atau Password salah!" << endl;
+    goto back_to_login;
+  }
 
 back_to_buy:
 

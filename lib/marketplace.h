@@ -23,22 +23,35 @@ public:
     float voucherDiscount;
   };
 
-  int voucherListIndex = 0;
-  float redeemVoucher = 0.0;
+  int voucherListIndex;
+  float redeemVoucher;
   Voucher voucherList[255];
 
-  int itemsListIndex = 0;
+  int itemsListIndex;
   ItemList itemsList[255];
 
-  int userChartIndex = 0;
+  int userChartIndex;
   Cart userCart[255];
 
-  int userKurirId = 0;
-  bool userKurirProtection = false;
-  string kurirList[3] = {"J&T", "SiCepat", "AnterAja"};
+  int userKurirId;
+  bool userKurirProtection;
+  string kurirList[3];
 
   string userName;
   string userAddress;
+
+  void init()
+  {
+    voucherListIndex = 0;
+    redeemVoucher = 0.0;
+    itemsListIndex = 0;
+    userChartIndex = 0;
+    userKurirId = 0;
+    userKurirProtection = false;
+    kurirList[0] = "J&T";
+    kurirList[1] = "SiCepat";
+    kurirList[2] = "AnterAja";
+  }
 
   ItemList *getItemlist()
   {
