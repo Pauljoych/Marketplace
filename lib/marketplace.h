@@ -4,6 +4,7 @@ using namespace std;
 class MarketPlace
 {
 private:
+public:
   struct ItemList
   {
     string itemName;
@@ -39,7 +40,6 @@ private:
   string userName;
   string userAddress;
 
-public:
   ItemList *getItemlist()
   {
     return itemsList;
@@ -55,9 +55,9 @@ public:
     return kurirList;
   }
 
-  int getKurir()
+  string getKurir()
   {
-    return userKurirId;
+    return kurirList[userKurirId];
   }
 
   bool getKurisProtection()

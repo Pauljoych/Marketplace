@@ -5,6 +5,7 @@ using namespace std;
 class UserLogin
 {
 private:
+public:
   struct User
   {
     int userId;
@@ -14,7 +15,8 @@ private:
   int userDataIndex = 0;
   User userData[255];
 
-public:
+  string curentUserName;
+
   bool userLogin()
   {
     bool isRegister = false;
@@ -33,6 +35,7 @@ public:
         if (userData[i].userPassword == tempUserPassword)
         {
           isRegister = true;
+          curentUserName = tempUserName;
         }
       }
     }
