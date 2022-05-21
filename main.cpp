@@ -27,7 +27,7 @@ int main()
   market.addItem("Mouse", 10000);
   market.addItem("Keyboard", 10000);
 
-  login.userRegister();
+  bool registerSuccess = login.userRegister();
 
 back_to_login:
 
@@ -89,12 +89,12 @@ back_to_buy:
 
   ofstream txt("invoice.txt");
   txt << "========================================" << endl;
-  txt << printElement(txt, "Cart Invoice", 40) << endl;
+  printElement(txt, "Cart Invoice", 40) << endl;
   txt << "========================================" << endl;
-  txt << printElement(txt, "Nama Pelanggan	:", 20);
-  txt << printElement(txt, login.curentUserName, 20) << endl;
-  txt << printElement(txt, "Alamat tujuan	:", 20);
-  txt << printElement(txt, market.userAddress, 20) << endl;
+  printElement(txt, "Nama Pelanggan	:", 20);
+  printElement(txt, login.curentUserName, 20) << endl;
+  printElement(txt, "Alamat tujuan	:", 20);
+  printElement(txt, market.userAddress, 20) << endl;
   txt << "========================================" << endl;
   string tempAsuransiString = "Tidak";
   if (market.getKurisProtection())
