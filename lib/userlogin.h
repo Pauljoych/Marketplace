@@ -11,15 +11,18 @@ public:
     int userId;
     string userName;
     int userPassword;
+    int userBalance;
   };
 
   int userDataIndex;
   User userData[255];
 
   string curentUserName;
+  int currentBalance;
 
   void init()
   {
+    currentBalance = 0;
     userDataIndex = 0;
   }
 
@@ -44,6 +47,7 @@ public:
         {
           isRegister = true;
           curentUserName = tempUserName;
+          currentBalance = userData[i].userBalance;
         }
       }
     }
@@ -56,6 +60,7 @@ public:
     bool isUserNameAvail = true;
     string tempUserName;
     int tempUserPassword;
+    int tempBalance;
 
     cout << "Register" << endl;
     cout << "====================" << endl;
@@ -63,6 +68,8 @@ public:
     cin >> tempUserName;
     cout << "Password : ";
     cin >> tempUserPassword;
+    cout << "Saldo Awal : ";
+    cin >> tempBalance;
 
     for (int i = 0; i < userDataIndex; i++)
     {
@@ -77,6 +84,7 @@ public:
       userData[userDataIndex].userId = userDataIndex;
       userData[userDataIndex].userName = tempUserName;
       userData[userDataIndex].userPassword = tempUserPassword;
+      userData[userDataIndex].userBalance = tempBalance;
       userDataIndex++;
     }
 

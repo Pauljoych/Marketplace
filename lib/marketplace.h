@@ -33,6 +33,8 @@ public:
   int userChartIndex;
   Cart userCart[255];
 
+  bool freeShipping;
+
   int userKurirId;
   bool userKurirProtection;
   string kurirList[3];
@@ -42,6 +44,7 @@ public:
 
   void init()
   {
+    freeShipping = false;
     voucherListIndex = 0;
     redeemVoucher = 0.0;
     itemsListIndex = 0;
@@ -92,6 +95,18 @@ public:
   float getDiscount()
   {
     return getCartTotal() * redeemVoucher;
+  }
+
+  int getOngkir()
+  {
+    if (getCartTotal() > 500000)
+    {
+      return 0;
+    }
+    else
+    {
+      return (15000 * (userChartIndex + 1));
+    }
   }
 
   void addItem(string _itemName, float _itemPrice)

@@ -24,8 +24,8 @@ int main()
   login.init();
   market.init();
 
-  market.addItem("Mouse", 10000);
-  market.addItem("Keyboard", 50000);
+  market.addItem("Mouse", 100000);
+  market.addItem("Keyboard", 500000);
   market.setVoucherList(9090, 0.5);
 
   bool registerSuccess = login.userRegister();
@@ -125,9 +125,13 @@ back_to_buy:
   txt << "========================================" << endl;
   printElement(txt, "Diskon", 20);
   printElement(txt, market.getDiscount(), 20) << endl;
+  printElement(txt, "Ongkir", 20);
+  printElement(txt, market.getOngkir(), 20) << endl;
 
   printElement(txt, "Total Bayar", 20);
-  printElement(txt, market.getCartTotal() - market.getDiscount(), 20) << endl;
+  printElement(txt, market.getCartTotal() - market.getDiscount() + market.getOngkir(), 20) << endl;
+  printElement(txt, "Saldo Akhir", 20);
+  printElement(txt, login.currentBalance - (market.getCartTotal() - market.getDiscount() + market.getOngkir()), 20) << endl;
   txt << "========================================" << endl;
 
   txt.close();

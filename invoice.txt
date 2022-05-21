@@ -1,17 +1,19 @@
 ========================================
 Cart Invoice                            
 ========================================
-Nama Pelanggan      Paul                
+Nama Pelanggan      A                   
 Alamat Tujuan       Sleman              
 ========================================
 Asuransi            Ya                  
-Ekspedisi           SiCepat             
+Ekspedisi           AnterAja            
 ========================================
 Nama barang         Harga               
 ----------------------------------------
-Mouse               10000               
-Keyboard            50000               
+Mouse               100000              
+Keyboard            500000              
 ========================================
-Diskon              30000               
-Total Bayar         30000               
+Diskon              300000              
+Ongkir              0                   
+Total Bayar         300000              
+Saldo Akhir         700000              
 ========================================
