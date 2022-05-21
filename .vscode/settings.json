@@ -4,7 +4,8 @@
     "istream": "cpp",
     "iostream": "cpp",
     "string": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "iosfwd": "cpp"
   },
   "terminal.integrated.shell.windows": "cmd.exe"
 }

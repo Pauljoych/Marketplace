@@ -1,16 +1,17 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <lib/marketplace.h>
-#include <lib/userlogin.h>
+#include "lib/marketplace.h"
+#include "lib/userlogin.h"
 
 using namespace std;
 
 template <typename T>
-string printElement(T t, const int &width)
+ostream &printElement(ostream &out, T t, const int &width)
 {
-  return left << setw(width) << t;
-}
+  out << left << setw(width) << t;
+  return out;
+};
 
 int main()
 {
@@ -73,38 +74,38 @@ back_to_buy:
 
   ofstream txt("invoice.txt");
   txt << "========================================" << endl;
-  txt << printElement("Cart Invoice", 40) << endl;
+  txt << printElement(txt, "Cart Invoice", 40) << endl;
   txt << "========================================" << endl;
-  txt << printElement("Nama Pelanggan	:", 20);
-  txt << printElement(login.curentUserName, 20) << endl;
-  txt << printElement("Alamat tujuan	:", 20);
-  txt << printElement(market.userAddress, 20) << endl;
+  txt << printElement(txt, "Nama Pelanggan	:", 20);
+  txt << printElement(txt, login.curentUserName, 20) << endl;
+  txt << printElement(txt, "Alamat tujuan	:", 20);
+  txt << printElement(txt, market.userAddress, 20) << endl;
   txt << "========================================" << endl;
   string tempAsuransiString = "Tidak";
   if (market.getKurisProtection())
   {
     tempAsuransiString = "Ya";
   }
-  txt << printElement("Asuransi	:", 20);
-  txt << printElement(tempAsuransiString, 20) << endl;
-  txt << printElement("Ekspedisi	:", 20);
-  txt << printElement(market.getKurir(), 20) << endl;
+  printElement(txt, "Asuransi	:", 20);
+  printElement(txt, tempAsuransiString, 20) << endl;
+  printElement(txt, "Ekspedisi	:", 20);
+  printElement(txt, market.getKurir(), 20) << endl;
   txt << "========================================" << endl;
 
-  txt << printElement("Nama barang", 20);
-  txt << printElement("Harga", 20) << endl;
+  printElement(txt, "Nama barang", 20);
+  printElement(txt, "Harga", 20) << endl;
   txt << "----------------------------------------" << endl;
   for (int i = 0; i < market.userChartIndex; i++)
   {
-    txt << printElement(market.userCart[i].itemName, 20);
-    txt << printElement(market.userCart[i].itemPrice, 20) << endl;
+    printElement(txt, market.userCart[i].itemName, 20);
+    printElement(txt, market.userCart[i].itemPrice, 20) << endl;
   }
   txt << "========================================" << endl;
-  txt << printElement("Diskon :", 20);
-  txt << printElement(market.getDiscount(), 20) << endl;
+  printElement(txt, "Diskon :", 20);
+  printElement(txt, market.getDiscount(), 20) << endl;
 
-  txt << printElement("Total Bayar :", 20);
-  txt << printElement(market.getCartTotal() - market.getDiscount(), 20) << endl;
+  printElement(txt, "Total Bayar :", 20);
+  printElement(txt, market.getCartTotal() - market.getDiscount(), 20) << endl;
   txt << "========================================" << endl;
 
   txt.close();
