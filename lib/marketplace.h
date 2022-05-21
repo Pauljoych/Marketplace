@@ -124,4 +124,18 @@ public:
   {
     userKurirId = kurirId;
   }
+
+  void redeemVoucherToken(int token)
+  {
+    bool isValid = false;
+
+    for (int i = 0; i < voucherListIndex; i++)
+    {
+      if (voucherList[i].voucherToken == token)
+      {
+        isValid = true;
+        redeemVoucher += voucherList[i].voucherDiscount;
+      }
+    }
+  }
 };

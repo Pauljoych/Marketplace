@@ -25,7 +25,8 @@ int main()
   market.init();
 
   market.addItem("Mouse", 10000);
-  market.addItem("Keyboard", 10000);
+  market.addItem("Keyboard", 50000);
+  market.setVoucherList(9090, 0.5);
 
   bool registerSuccess = login.userRegister();
 
@@ -53,13 +54,12 @@ back_to_buy:
 
   if (tempOrder != 1)
   {
-    cout << "\x1B[2J\x1B[H";
     goto back_to_buy;
   }
 
   cout << "====================" << endl;
   cout << "Input Alamat Pengirim : ";
-  getline(cin, market.userAddress);
+  cin >> market.userAddress;
 
   int tempKurirId;
   cout << "====================" << endl;
@@ -87,13 +87,20 @@ back_to_buy:
   }
   market.setKurirProtection(tempAsutasiBool);
 
+  int voucherToken;
+  cout << "====================" << endl;
+  cout << "Masukan Token Voucher Jika Tidak Ada 0" << endl;
+  cout << "Voucher Token : ";
+  cin >> voucherToken;
+  market.redeemVoucherToken(voucherToken);
+
   ofstream txt("invoice.txt");
   txt << "========================================" << endl;
   printElement(txt, "Cart Invoice", 40) << endl;
   txt << "========================================" << endl;
-  printElement(txt, "Nama Pelanggan	:", 20);
+  printElement(txt, "Nama Pelanggan", 20);
   printElement(txt, login.curentUserName, 20) << endl;
-  printElement(txt, "Alamat tujuan	:", 20);
+  printElement(txt, "Alamat Tujuan", 20);
   printElement(txt, market.userAddress, 20) << endl;
   txt << "========================================" << endl;
   string tempAsuransiString = "Tidak";
@@ -101,25 +108,25 @@ back_to_buy:
   {
     tempAsuransiString = "Ya";
   }
-  printElement(txt, "Asuransi	:", 20);
+  printElement(txt, "Asuransi", 20);
   printElement(txt, tempAsuransiString, 20) << endl;
-  printElement(txt, "Ekspedisi	:", 20);
+  printElement(txt, "Ekspedisi", 20);
   printElement(txt, market.getKurir(), 20) << endl;
   txt << "========================================" << endl;
 
   printElement(txt, "Nama barang", 20);
   printElement(txt, "Harga", 20) << endl;
   txt << "----------------------------------------" << endl;
-  for (int i = 0; i < market.userChartIndex; i++)
+  for (int i = 0; i < market.userChartIndex - 1; i++)
   {
     printElement(txt, market.userCart[i].itemName, 20);
     printElement(txt, market.userCart[i].itemPrice, 20) << endl;
   }
   txt << "========================================" << endl;
-  printElement(txt, "Diskon :", 20);
+  printElement(txt, "Diskon", 20);
   printElement(txt, market.getDiscount(), 20) << endl;
 
-  printElement(txt, "Total Bayar :", 20);
+  printElement(txt, "Total Bayar", 20);
   printElement(txt, market.getCartTotal() - market.getDiscount(), 20) << endl;
   txt << "========================================" << endl;
 

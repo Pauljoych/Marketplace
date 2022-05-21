@@ -32,7 +32,7 @@ public:
     cout << "Login" << endl;
     cout << "====================" << endl;
     cout << "Username : ";
-    getline(cin, tempUserName);
+    cin >> tempUserName;
     cout << "Password : ";
     cin >> tempUserPassword;
 
@@ -60,7 +60,7 @@ public:
     cout << "Register" << endl;
     cout << "====================" << endl;
     cout << "Username : ";
-    getline(cin, tempUserName);
+    cin >> tempUserName;
     cout << "Password : ";
     cin >> tempUserPassword;
 
