@@ -1,31 +1,43 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <lib/marketplace.h>
 #include <lib/userlogin.h>
 
 using namespace std;
 
+template <typename T>
+void printElement(T t, const int &width)
+{
+  cout << left << setw(width) << t;
+}
+
 int main()
 {
+
+  UserLogin login;
+  MarketPlace market;
+
   cout << "========================\n";
   cout << "Input User Name = ";
   getline(cin, tempUserName);
-	
+
   cout << "========================\n";
   cout << "Input Banyak Barang Yang Ingin Dibeli = ";
   cin >> banyak;
-  for(int i=1; i>=banyak; i++){
-      cout << "========================\n";
-      cout << "Input Nama Barang = ";
-      cin >> itemName;
-      cout << "Input Harga Barang = ";
-      cin >> itemPrice;	
+  for (int i = 1; i >= banyak; i++)
+  {
+    cout << "========================\n";
+    cout << "Input Nama Barang = ";
+    cin >> itemName;
+    cout << "Input Harga Barang = ";
+    cin >> itemPrice;
   }
 
   cout << "========================\n";
   cout << "Input Alamat Pengirim = ";
   cin >> userAddress;
-	
+
   cout << "========================\n";
   cout << "Kurir : " << endl;
   cout << "J&T" << endl;
@@ -34,35 +46,42 @@ int main()
   cout << "========================\n";
   cout << "Input Kurir = ";
   cin >> list;
-  if(list==1){
-  	kurirList="J&T";
+  if (list == 1)
+  {
+    kurirList = "J&T";
   }
-  else if(list==2){
-	kurirList="SiCepat";
+  else if (list == 2)
+  {
+    kurirList = "SiCepat";
   }
-  else if(list==3){
-	kurirList="AnterAja";
-  }else{
-	kurirList="-";
+  else if (list == 3)
+  {
+    kurirList = "AnterAja";
   }
-  
+  else
+  {
+    kurirList = "-";
+  }
+
   ofstream txt("invoice.txt");
   txt << "+-----------------------------------------------+\n";
   txt << "|\t\tBukti Pembayaran\t\t|\n";
   txt << "+-----------------------------------------------+\n";
-  txt << "| Nama Pelanggan	: "<<tempUserName;<<"\t\t\t|\n";
-  txt << "| Alamat tujuan 	: "<<userAddress<<"\t\t|\n";
-  if(userKurirProtection==false){
-  	userKurirProtection="Tidak";
+  txt << "| Nama Pelanggan	: " << tempUserName << "\t\t\t|\n";
+  txt << "| Alamat tujuan 	: " << userAddress << "\t\t|\n";
+  if (userKurirProtection == false)
+  {
+    userKurirProtection = "Tidak";
   }
-  else{
-  	userKurirProtection="Ya";
+  else
+  {
+    userKurirProtection = "Ya";
   }
-  txt << "| Asuransi produk	: "<<userKurirProtection<<"\t\t\t|\n";
-  txt << "| Ekspedisi		: "<<kurirList<<"\t\t\t|\n";
+  txt << "| Asuransi produk	: " << userKurirProtection << "\t\t\t|\n";
+  txt << "| Ekspedisi		: " << kurirList << "\t\t\t|\n";
   txt << "+-----------------------------------------------+\n";
-  txt << "| Nama barang	: "<<itemName<<"\t\t\t\t|\n";
-  txt << "| Jumlah barang	: "<<itemsListIndex<<"\t\t\t\t|\n";
+  txt << "| Nama barang	: " << itemName << "\t\t\t\t|\n";
+  txt << "| Jumlah barang	: " << itemsListIndex << "\t\t\t\t|\n";
   txt << "+-----------------------------------------------+\n";
   txt << "| Diskon	: Rp.0\t\t\t\t|\n";
   txt << "| Total bayar	: p\t\t\t\t|\n";
@@ -72,4 +91,3 @@ int main()
   txt << "+-----------------------------------------------+\n";
   txt.close();
 }
-

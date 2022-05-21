@@ -23,6 +23,7 @@ private:
   };
 
   int voucherListIndex = 0;
+  float redeemVoucher = 0.0;
   Voucher voucherList[255];
 
   int itemsListIndex = 0;
@@ -62,6 +63,22 @@ public:
   bool getKurisProtection()
   {
     return userKurirProtection;
+  }
+
+  float getCartTotal()
+  {
+    float tempTotal = 0;
+    for (int i = 0; i < userChartIndex; i++)
+    {
+      tempTotal += userCart[i].itemPrice;
+    }
+
+    return tempTotal;
+  }
+
+  float getDiscount()
+  {
+    return getCartTotal() * redeemVoucher;
   }
 
   void addItem(string _itemName, float _itemPrice)
