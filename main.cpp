@@ -18,6 +18,7 @@ int main()
   struct Cart;
   struct ItemList;
 
+  /* SCRIPT INIT */
   UserLogin login;
   MarketPlace market;
 
@@ -26,14 +27,16 @@ int main()
 
   market.addItem("Mouse", 100000);
   market.addItem("Keyboard", 500000);
+  market.addItem("Dashcam", 500000);
+  market.addItem("Webcam", 500000);
   market.setVoucherList(9090, 0.5);
+  /* SCRIPT INIT */
 
   bool registerSuccess = login.userRegister();
 
 back_to_login:
 
   bool loginSuccess = login.userLogin();
-
   if (!loginSuccess)
   {
     cout << "Username atau Password salah!" << endl;

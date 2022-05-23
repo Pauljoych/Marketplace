@@ -1,11 +1,11 @@
 ========================================
 Cart Invoice                            
 ========================================
-Nama Pelanggan      A                   
-Alamat Tujuan       Sleman              
+Nama Pelanggan      Luthfi              
+Alamat Tujuan       Bantul              
 ========================================
-Asuransi            Ya                  
-Ekspedisi           AnterAja            
+Asuransi            Tidak               
+Ekspedisi           SiCepat             
 ========================================
 Nama barang         Harga               
 ----------------------------------------
